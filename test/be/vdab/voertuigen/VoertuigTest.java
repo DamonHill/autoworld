@@ -297,7 +297,7 @@ public class VoertuigTest implements Serializable, MensFactorInTest {
     @Test(expected = be.vdab.util.mens.MensException.class)
     public void test_setBestuurder_zonder_Rijbewijs() {
         //VOERTUIG B,BE//bestuurder:---
-        Voertuig voertuig = new TestVoertuig("auto", datum, 18300, AANTAL_INZITTENDEN, INGEZETENE_B);
+        Voertuig voertuig = new TestVoertuig("auto", datum, 18300, AANTAL_INZITTENDEN, BESTUURDER_B);
         voertuig.setBestuurder(INGEZETENE_A);
     }
 
