@@ -7,6 +7,8 @@ package be.vdab.util.mens;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -14,7 +16,7 @@ import java.util.Objects;
  */
 public class Mens implements Comparable<Mens> {
     private String naam;
-    private Rijbewijs[] rijbewijs;
+    private Rijbewijs[] rijbewijs = new Rijbewijs[0]; // nodig voor init van persoon zonder rijbewijs
 
     public Mens(String naam) {
         setNaam(naam);
@@ -22,10 +24,7 @@ public class Mens implements Comparable<Mens> {
 
     
     public Mens(String naam, Rijbewijs... rijbewijs) {
-        this.rijbewijs = rijbewijs;
-        for (int i=0; i<rijbewijs.length; i++) {
-            setRijbewijs(rijbewijs[i],i);
-        }
+        setRijbewijs(rijbewijs);
         setNaam(naam);
     }
 
@@ -39,9 +38,13 @@ public class Mens implements Comparable<Mens> {
         }
     }
     
-    public final void setRijbewijs(Rijbewijs rb, int index) {
-        if (rb.ordinal() >= 0 && !Arrays.asList(this.rijbewijs).contains(rb)) {
-            this.rijbewijs[index] = rb;
+    public final void setRijbewijs(Rijbewijs... rijbewijs) {
+        Set<Rijbewijs> rijbewijzenSet = new TreeSet<>(Arrays.asList(rijbewijs));
+        this.rijbewijs = new Rijbewijs[rijbewijzenSet.size()];
+        int i = -1;
+        for (Rijbewijs rb : rijbewijzenSet) {
+            i++;
+            this.rijbewijs[i] = rb;
         }
     }
 
@@ -95,7 +98,7 @@ public class Mens implements Comparable<Mens> {
 
     @Override
     public String toString() {
-        if (rijbewijs.length == 0) {
+        if (rijbewijs == null || rijbewijs.length == 0) {
             return naam;
         }
         else {
