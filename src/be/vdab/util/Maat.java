@@ -3,19 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.vdab.util.mens;
+package be.vdab.util;
 
 /**
  *
  * @author arne.simons
  */
-public class MensException extends IllegalArgumentException {
+public enum Maat {
+    centimeter, decimeter, meter;
 
-    public MensException() {
-    }
-
-    public MensException(String message) {
-        super(message);
+    @Override
+    public String toString() {
+        return this.name();
     }
     
     

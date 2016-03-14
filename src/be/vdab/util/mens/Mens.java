@@ -5,6 +5,7 @@
  */
 package be.vdab.util.mens;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
@@ -14,7 +15,7 @@ import java.util.TreeSet;
  *
  * @author arne.simons
  */
-public class Mens implements Comparable<Mens> {
+public class Mens implements Comparable<Mens>, Serializable {
     private String naam;
     private Rijbewijs[] rijbewijs = new Rijbewijs[0]; // nodig voor init van persoon zonder rijbewijs
 
