@@ -68,7 +68,7 @@ public class HoofdProgramma {
     
         System.out.println("Gesorteerd op prijs =============================");
         Comparator c_prijs = getAankoopprijsComparator();
-        SortedSet<Voertuig> ssv_opPrijs = new TreeSet<>(c_prijs);
+        SortedSet<Voertuig> ssv_opPrijs = new TreeSet<>(c_prijs).descendingSet();
         ssv_opPrijs.addAll(ssv);
         for (Voertuig v: ssv_opPrijs) {
             System.out.println(v.toString());

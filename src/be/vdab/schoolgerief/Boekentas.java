@@ -15,6 +15,7 @@ import java.util.Objects;
  * @author arne.simons
  */
 public class Boekentas implements Laadbaar, Serializable {
+    public static final long serialVersionUID = 1L;
     private Volume laadvolume;
     private String kleur;
 
@@ -23,6 +24,7 @@ public class Boekentas implements Laadbaar, Serializable {
         setLaadvolume(laadvolume);
     }
 
+    @Override
     public Volume getLaadvolume() {
         return laadvolume;
     }
@@ -31,6 +33,7 @@ public class Boekentas implements Laadbaar, Serializable {
         return kleur;
     }
 
+    @Override
     public final void setLaadvolume(Volume laadvolume) {
         if (laadvolume == null) {
             throw new IllegalArgumentException("Het laadvolume moet verplicht worden ingevuld!");

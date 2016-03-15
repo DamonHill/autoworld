@@ -16,6 +16,7 @@ import java.util.TreeSet;
  * @author arne.simons
  */
 public class Mens implements Comparable<Mens>, Serializable {
+    public static final long serialVersionUID = 1L;
     private String naam;
     private Rijbewijs[] rijbewijs = new Rijbewijs[0]; // nodig voor init van persoon zonder rijbewijs
 
